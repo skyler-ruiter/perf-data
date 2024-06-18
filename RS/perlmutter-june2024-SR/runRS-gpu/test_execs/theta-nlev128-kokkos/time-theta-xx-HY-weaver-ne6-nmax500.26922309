@@ -1,0 +1,116 @@
+&ctl_nl
+NThreads=1
+partmethod    = 4
+topology      = "cube"
+test_case     = "jw_baroclinic"
+u_perturb = 1
+rotate_grid = 0
+
+ne = 6
+nmax         = 500
+
+statefreq=999999
+disable_diagnostics = .true.
+restartfreq   = 43200
+restartfile   = "./R0001"
+runtype       = 0
+mesh_file='/dev/null'
+integration   = "explicit"
+
+qsize=10
+cubed_sphere_map = 2
+dt_remap_factor = 2
+dt_tracer_factor = 6
+hv_ref_profiles = 6
+hypervis_order = 2
+hypervis_scaling = 3.0
+hypervis_subcycle = 1
+hypervis_subcycle_tom = 1
+hypervis_subcycle_q = 6
+nu = 3.4e-08
+nu_top = 10000.0
+pgrad_correction = 1
+se_ftype = 0
+limiter_option = 9
+tstep = 1
+theta_advect_form = 1
+theta_hydrostatic_mode = .false.
+tstep_type = 9
+vert_remap_q_alg = 10
+transport_alg = 12
+vtheta_thresh = 180
+internal_diagnostics_level = 0
+/
+
+&vert_nl
+vfile_mid = './vcoord/sabm-128.ascii'
+vfile_int = './vcoord/sabi-128.ascii'
+/
+&prof_inparm
+profile_outpe_num = 100
+profile_single_file             = .true.
+/
+
+&analysis_nl
+! disabled
+ output_timeunits=1,1
+ output_frequency=-1,-1
+ output_start_time=0,0
+ output_end_time=30000,30000
+ output_varnames1='ps','zeta','T','geo'
+ output_varnames2='Q','Q2','Q3','Q4','Q5'
+! output_prefix='xx-ne20-'
+ io_stride=8
+ output_type = 'netcdf'
+/
+
+
+***** GLOBAL STATISTICS (     1 MPI TASKS) *****
+
+$Id: gptl.c,v 1.157 2011-03-28 20:55:18 rosinski Exp $
+'count' is cumulative. All other stats are max/min
+'on' indicates whether the timer was active during output, and so stats are lower or upper bounds.
+
+name                               on  processes  threads        count      walltotal   wallmax (proc   thrd  )   wallmin (proc   thrd  )
+"Total"                             -          1        1 1.000000e+00   1.168703e+01    11.687 (     0      0)    11.687 (     0      0)
+"prim_init1"                        -          1        1 1.000000e+00   1.278349e-01     0.128 (     0      0)     0.128 (     0      0)
+"PartitioningTime"                  -          1        1 1.000000e+00   4.710000e-07     0.000 (     0      0)     0.000 (     0      0)
+"repro_sum_int"                     -          1        1 9.900000e+01   1.713344e-02     0.017 (     0      0)     0.017 (     0      0)
+"compose_init"                      -          1        1 1.000000e+00   9.042345e-03     0.009 (     0      0)     0.009 (     0      0)
+"sl_init1"                          -          1        1 1.000000e+00   7.548342e-02     0.075 (     0      0)     0.075 (     0      0)
+"prim_init2"                        -          1        1 1.000000e+00   7.204648e+00     7.205 (     0      0)     7.205 (     0      0)
+"prim_printstate"                   -          1        1 1.000000e+00   5.662519e-02     0.057 (     0      0)     0.057 (     0      0)
+"tl-sc dp3d-from-ps"                -          1        1 1.000000e+00   1.421350e-04     0.000 (     0      0)     0.000 (     0      0)
+"prim_io_init"                      -          1        1 1.000000e+00   3.800000e-07     0.000 (     0      0)     0.000 (     0      0)
+"prim_main_loop"                    -          1        1 1.000000e+00   4.319991e+00     4.320 (     0      0)     4.320 (     0      0)
+"prim_run"                          -          1        1 8.400000e+01   4.319967e+00     4.320 (     0      0)     4.320 (     0      0)
+"tl-sc prim_run_subcycle_c"         -          1        1 8.400000e+01   4.270955e+00     4.271 (     0      0)     4.271 (     0      0)
+"tl-s prim_step_flexible"           -          1        1 8.400000e+01   4.270753e+00     4.271 (     0      0)     4.271 (     0      0)
+"ApplyCAMForcing_tracers"           -          1        1 8.400000e+01   2.041542e-02     0.020 (     0      0)     0.020 (     0      0)
+"tl-s deep_copy+derived_dp"         -          1        1 8.400000e+01   3.913908e-03     0.004 (     0      0)     0.004 (     0      0)
+"ApplyCAMForcing_dynamics"          -          1        1 2.520000e+02   1.565788e-02     0.016 (     0      0)     0.016 (     0      0)
+"tl-ae prim_advance_exp"            -          1        1 5.040000e+02   3.470506e+00     3.471 (     0      0)     3.471 (     0      0)
+"ttype9_imex_timestep"              -          1        1 5.040000e+02   2.999197e+00     2.999 (     0      0)     2.999 (     0      0)
+"caar compute"                      -          1        1 5.040000e+03   1.283449e+00     1.283 (     0      0)     1.283 (     0      0)
+"caar_bexchV"                       -          1        1 2.520000e+03   5.444890e-01     0.544 (     0      0)     0.544 (     0      0)
+"caar limiter"                      -          1        1 3.024000e+03   7.862807e-02     0.079 (     0      0)     0.079 (     0      0)
+"compute_stage_value_dirk"          -          1        1 2.520000e+03   1.046463e+00     1.046 (     0      0)     1.046 (     0      0)
+"tl-ae advance_hypervis_dp"         -          1        1 5.040000e+02   4.636810e-01     0.464 (     0      0)     0.464 (     0      0)
+"hvf-bhwk"                          -          1        1 5.040000e+02   2.274451e-01     0.227 (     0      0)     0.227 (     0      0)
+"hvf-bexch"                         -          1        1 1.512000e+03   1.658993e-01     0.166 (     0      0)     0.166 (     0      0)
+"Remap Thickness Functor"           -          1        1 2.520000e+02   2.116201e-02     0.021 (     0      0)     0.021 (     0      0)
+"Remap Scale States Functor"        -          1        1 2.520000e+02   7.716323e-03     0.008 (     0      0)     0.008 (     0      0)
+"Remap Compute Grids Functor"       -          1        1 2.520000e+02   1.813116e-02     0.018 (     0      0)     0.018 (     0      0)
+"Remap Compute Remap Functor"       -          1        1 2.520000e+02   2.160763e-01     0.216 (     0      0)     0.216 (     0      0)
+"Remap Rescale States Functor"      -          1        1 2.520000e+02   8.247930e-03     0.008 (     0      0)     0.008 (     0      0)
+"tl-at prim_advec_tracers_compose"  -          1        1 8.400000e+01   3.784435e-01     0.378 (     0      0)     0.378 (     0      0)
+"compose_transport"                 -          1        1 8.400000e+01   3.781076e-01     0.378 (     0      0)     0.378 (     0      0)
+"compose_calc_trajectory"           -          1        1 8.400000e+01   5.734796e-02     0.057 (     0      0)     0.057 (     0      0)
+"compose_3d_levels"                 -          1        1 8.400000e+01   3.898376e-02     0.039 (     0      0)     0.039 (     0      0)
+"compose_v_bexchv"                  -          1        1 8.400000e+01   1.342809e-02     0.013 (     0      0)     0.013 (     0      0)
+"compose_v2x"                       -          1        1 8.400000e+01   4.760448e-03     0.005 (     0      0)     0.005 (     0      0)
+"compose_isl"                       -          1        1 8.400000e+01   2.477534e-02     0.025 (     0      0)     0.025 (     0      0)
+"compose_hypervis_scalar"           -          1        1 8.400000e+01   1.961999e-01     0.196 (     0      0)     0.196 (     0      0)
+"compose_cedr_global"               -          1        1 8.400000e+01   5.245154e-02     0.052 (     0      0)     0.052 (     0      0)
+"compose_cedr_local"                -          1        1 8.400000e+01   1.640110e-02     0.016 (     0      0)     0.016 (     0      0)
+"compose_dss_q"                     -          1        1 8.400000e+01   3.077346e-02     0.031 (     0      0)     0.031 (     0      0)

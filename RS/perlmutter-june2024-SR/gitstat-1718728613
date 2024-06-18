@@ -1,0 +1,26 @@
+ status is ------------- 
+On branch skyler-ruiter/homme/perlmutter
+Your branch is up to date with 'origin/skyler-ruiter/homme/perlmutter'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	../../aaa/
+	gitstat
+	../../jjj/
+
+nothing added to commit but untracked files present (use "git add" to track)
+ branch is ------------- 
+  master
+* skyler-ruiter/homme/perlmutter
+ diffs are ------------- 
+ last 10 commits are ------------- 
+c9c5056519989a7d38564c9ad883f9f9007ec49f adds a renamed copy of file with naming conventions
+388b4f8cf2ccf96290f2ebc4126856a6d3306ac0 adds perlmutter cache file update and instructions to run on pm
+edcd3007beb43c20adeda327bdba4bfc8e54c6e3 adds kokkos gpu change for newer kokkos version
+c6fe5d172b9dba97cb4b51695d46fcc9d5001ca5 adds changes from PR https://github.com/E3SM-Project/E3SM/pull/6429
+76a40eb9db373536874cce429208f8068a2c6e53 Merge branch 'master' of github.com:skyler-ruiter/E3SM
+7b82f6967a8be417f857a23608e680b0c81966b6 adds more weaver settings
+46d8cabc64097afe83a2b6f108e59e9c97778532 Merge branch 'master' of github.com:skyler-ruiter/E3SM
+ff8bdc3c4e7058b34cdabb24faa10658231428fc Merge branch 'master' of github.com:skyler-ruiter/E3SM
+b79ab4c76183d1992ef25822c628cb66994f7610 adds weaver cmake changes and changes for directories for cmake
+dd32f0f6bf366549a47f8cd77df0eb9614788476 Merge branch 'jayeshkrishna/scorpio-v1.6.2' (PR #6329)
