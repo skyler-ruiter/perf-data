@@ -1,0 +1,31 @@
+ status is ------------- 
+On branch skyler-ruiter/homme/weaver
+Your branch is up to date with 'origin/skyler-ruiter/homme/weaver'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+  (commit or discard the untracked or modified content in submodules)
+	modified:   ../../cime (untracked content)
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	gitstat
+
+no changes added to commit (use "git add" and/or "git commit -a")
+ branch is ------------- 
+  master
+  oksanaguba/homme/weaver
+* skyler-ruiter/homme/weaver
+ diffs are ------------- 
+ last 10 commits are ------------- 
+89217782a0c8c1389630fb08518362d6ce1652d1 adds rest of needed weaver changes for bfb testing and performance benchmarking
+25248c55469cbc5de5fc85e2e865ccb9b2426c03 kills mpi on device for performance to get rid of cuda memory issues
+1de72cf89afe9c21bd45dffccf03cabe62dad063 adds weaver changes for performance and bfb testing
+4fcfed0234c714b808b9c253ff220b8650f62f6f adds blake cache file and instructions for getting it run for performance
+d3d03c3c8f80c594738f470aa81cf7ce8049287c turns on compose for SL tracers
+00c1fcb666b2743b562b2d7a05a599b6b19d0988 splits cache file into performance and bfb testing versions and tests both compile. bfb testing needed oksanas change for kokkos gpu update
+1f3845f89787531736fb2feb62ba838acd7e0b25 removes unneeded changes oksana told me about
+965e25d9379e0fbb93e188abeb94bcf1663912f7 gets weaver cache file working with kokkos and parallel io and cleans up some unneeded args
+46d8cabc64097afe83a2b6f108e59e9c97778532 Merge branch 'master' of github.com:skyler-ruiter/E3SM
+ff8bdc3c4e7058b34cdabb24faa10658231428fc Merge branch 'master' of github.com:skyler-ruiter/E3SM
