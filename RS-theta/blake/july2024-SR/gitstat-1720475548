@@ -1,0 +1,61 @@
+ status is ------------- 
+On branch skyler-ruiter/homme/weaver
+Your branch is up to date with 'origin/skyler-ruiter/homme/weaver'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+  (commit or discard the untracked or modified content in submodules)
+	modified:   ../../cime (untracked content)
+	modified:   cmake/machineFiles/blake.cmake
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	../../aaa/
+	gitstat
+
+no changes added to commit (use "git add" and/or "git commit -a")
+ branch is ------------- 
+  master
+  oksanaguba/homme/weaver
+* skyler-ruiter/homme/weaver
+ diffs are ------------- 
+diff --git a/components/homme/cmake/machineFiles/blake.cmake b/components/homme/cmake/machineFiles/blake.cmake
+index cf88a6c42b..4ac23dbae0 100644
+--- a/components/homme/cmake/machineFiles/blake.cmake
++++ b/components/homme/cmake/machineFiles/blake.cmake
+@@ -29,7 +29,6 @@ EXECUTE_PROCESS(COMMAND nc-config --prefix
+ )
+ SET (NetCDF_C_PATH "${NCCONFIG_OUTPUT}" CACHE STRING "")
+ 
+-
+ SET(HOMMEXX_BFB_TESTING FALSE CACHE BOOL "")
+ SET(BUILD_HOMME_WITHOUT_PIOLIBRARY TRUE CACHE BOOL "")
+ 
+@@ -37,12 +36,10 @@ SET(BUILD_HOMME_WITHOUT_PIOLIBRARY TRUE CACHE BOOL "")
+ SET (CPRNC_DIR /projects/e3sm/cprnc CACHE FILEPATH "")
+ 
+ # Flag tweaks
+-SET (CMAKE_C_FLAGS "-w" CACHE STRING "") # disable warnings
+-SET (ADD_CXX_FLAGS "-Xcudafe --diag_suppress=esa_on_defaulted_function_ignored -Wno-unknown-pragmas -I/projects/ppc64le-pwr9-rhel8/tpls/openmpi/4.1.4/gcc/11.3.0/base/vu2aei6/include" CACHE STRING "")
+-SET (ADD_Fortran_FLAGS " -I/projects/ppc64le-pwr9-rhel8/tpls/openmpi/4.1.4/gcc/11.3.0/base/vu2aei6/include" CACHE STRING "")
++SET (CMAKE_C_FLAGS "-w -O3 -DNDEBUG" CACHE STRING "") # disable warnings
++SET (ADD_CXX_FLAGS "-Xcudafe --diag_suppress=esa_on_defaulted_function_ignored -Wno-unknown-pragmas -I/projects/ppc64le-pwr9-rhel8/tpls/openmpi/4.1.4/gcc/11.3.0/base/vu2aei6/include -O3 -DNDEBUG" CACHE STRING "")
++SET (ADD_Fortran_FLAGS " -I/projects/ppc64le-pwr9-rhel8/tpls/openmpi/4.1.4/gcc/11.3.0/base/vu2aei6/include -O3 -DNDEBUG" CACHE STRING "")
+ SET (CMAKE_EXE_LINKER_FLAGS "-ldl -lopenblas" CACHE STRING "")
+-SET (OPT_FLAGS "-O3" CACHE STRING "")
+-SET (DEBUG_FLAGS "-ffp-contract=off -g" CACHE STRING "")
+ 
+ # Homme settings
+ set(HOMMEXX_VECTOR_SIZE 1 CACHE STRING "")
+ last 10 commits are ------------- 
+adcf7d9e4ee77011298060641ba7711c1055e808 adds changes for valid performance benchmarking, flag changes
+89a6dd13351a3d611184181b8218c901ce5f27c9 finishes changes to update to master
+8e561324a8dc3da3b8252a6c5951abf58c75dd5f merge some master changes into branch
+09a229b44a05d91cd2a7ed3070438fb35969e0f7 minor changes to cache files
+1525bd2eb5c3ec2c050513ca562ea98e551abf0d changes cache file naming convention
+89217782a0c8c1389630fb08518362d6ce1652d1 adds rest of needed weaver changes for bfb testing and performance benchmarking
+25248c55469cbc5de5fc85e2e865ccb9b2426c03 kills mpi on device for performance to get rid of cuda memory issues
+1de72cf89afe9c21bd45dffccf03cabe62dad063 adds weaver changes for performance and bfb testing
+4fcfed0234c714b808b9c253ff220b8650f62f6f adds blake cache file and instructions for getting it run for performance
+d3d03c3c8f80c594738f470aa81cf7ce8049287c turns on compose for SL tracers
